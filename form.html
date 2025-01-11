@@ -1,0 +1,68 @@
+<h1>Form</h1>
+<button>Search</button>
+<form method='get' action='/search.php' class=”form” style=’display:none;’>
+    <div>
+    <a href='/'><img src='/image.gif' /></a>
+        <h3>Input Field</h3>
+        <input type='text' name='s' id='s' placeholder='Search...' class=’input’>
+        <div class="select">
+            <div class="oldest">Oldest</div>
+            <div class='latest'>Latest</div>
+        </div>
+    </div>
+    <div class=”message”></div>
+</form>
+
+
+<!--- 
+1) Accessibility 
+
+The first glaring items regarding accessibility is lack of ALT tags and aria-label tags.
+
+The <form> tag itself should have an aria-label to identify the group of elements on the page.
+    So for example, if the form is for searching, ideally, it would start being structured like so:
+    <form method='get' action='/search.php' class=”form” aria-label="Search by Oldest">
+
+The IMG tag is another place where accessibility should be present. In the HTML above, the IMG tag should be:
+    <a href='/'><img src='/image.gif' alt="Search" /></a>
+
+    If the image is purely for decoration then a role tag should also be assigned to it so that screen reader skip
+    interacting and flagging it for sighted users:
+    <a href='/'><img src='/image.gif' alt="Search" role="presentation" /></a>
+
+
+2) Performace and 3) Legibility
+
+Performance
+The other obvious item is that in order for this form to actual be performative on devices, the style should not be set
+to display:none; since it will make it invisible to screen readers and should instead use aria-hidden="true"
+
+<form method='get' action='/search.php' class=”form” aria-label="Search by Oldest" aria-hidden="true">
+
+The other performance related item is the lack of INPUT HTML tags, which without, the form cannot actually be used
+since there will be no interactive elements. Since the form seems like there needs to be a dropdown, you would need 
+to have LABEL and INPUT radio buttons. 
+
+aria label should also be applied to the message dive so that screen readers can recognize it.
+
+Legibility:
+Additionally, inconsistent quote marks are present and should be standardized
+to use double quotes.
+
+There is also a lack of a Submit button, which is required in order for a form to work.
+
+Refactored:
+    </form>
+    .
+    .
+    .
+        <input type="text" name="s" id="s" placeholder="Search..." class="input">
+        <div class="select">
+            <label><input type="radio" name="sort" value="oldest">Oldest</label>
+            <label><input type="radio" name="sort" value="latest">Latest</label>
+        </div>
+        <div class=”message” role="alert"></div>
+        <button type="submit">Search</button>
+    </form>
+    -->
+

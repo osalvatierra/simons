@@ -1,0 +1,61 @@
+<!--
+QUESTION:
+Suppose the following script is running on a web page. 
+Can you please tell us what the execution result would be? Can you please explain why?
+
+The execution may not load correctly since the helloWorld() function is being called right.
+
+While the loadScript parameter '/js/main.js' appends to the head, the helloWorld() function may not
+be available since the '/js/main.js' is loaded asynchronosly, which means that the rest of the code in the 
+script continues without waiting for the new script '/js/main.js' to finish loading. In most cases this would 
+cause the page not to load but it might sometimes appear to work ok since the '/js/main.js' code might in fact load
+before the rest of the script finishes loading.
+
+To ensure this doesn't happen, it would be better to call the function once the sccript is loaded.
+
+
+Follow up:
+
+To improve the loadScript, you could add a second parameter to the function called 'main', and then use that parameter within the 
+loadScript function like so and then call the helloWorld script after:
+
+	function loadScript(src, main) {
+    	let script = document.createElement("script");
+    	script.src = src;
+        scipt.onload = main;
+    	document.head.append(script);
+  	}
+    loadScript('/js/main.js', function() {
+        hellowWorld();
+    }
+
+
+    You could also use the defer Attribute and explicitly add the script in for /js/main.js and defer that, which is another option.
+
+-->
+
+
+<html>
+  <head>
+	...
+	<script>
+
+  	function loadScript(src) {
+    	let script = document.createElement("script");
+    	script.src = src;
+    	document.head.append(script);
+  	}
+  	loadScript("/js/main.js");
+  	helloWorld(); //assuming function helloWorld is in file /js/main.js
+
+  	//Follow-up question:
+  	//How would you improve function loadScript to make the script work? Please explain your thoughts.
+	 
+	</script>
+  </head>
+  <body>
+	...
+
+	...
+  </body>
+</html>

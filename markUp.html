@@ -1,0 +1,126 @@
+<!-- 
+In order to get the three different designs to fit each specified device sizes (Desktop, Tablet, and Mobile) without
+using MediqQueries, the easiest and quickest way to accomplish this task is to implement CSS Grids, which will
+adjust to viewports automatically depending on the properties provided.
+
+While there is much more work that would need to go into making the below CSS script funtional, I implemented a very
+rough idea of how I would begin going about creating a grid system using the 'display: grid' and 'grid-auto-rows: 200px', which sets the width for each article card.
+
+Unfortunately, I ran out of time in getting things perfectly aligned, as the recommended was suggested to be about 2 hours but the general idea is to create a columned CSS grid, setting the grid-auto-rows width to a specific number and going from there.
+
+My next step would have been to play around with alignment of the H1, H2, meta, and teaser CSS selectors so that they aligned to the specifications in conjuction with the CSS grid.
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML/CSS Challenge</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+	<style>
+        .header {
+        font-size: 32px;
+        display: block;
+        background-color: #1D2954;
+        }
+
+        .meta { font-size: 14px;}
+        .teaser { font-size: 16px;}
+        h1 {
+        font-size: 24px;
+        }
+
+        h2 { 
+        color: #ffffff;
+        }
+        h2 img {
+        filter: invert(1)
+        }
+
+        .cards {
+        display: grid;
+        grid-auto-rows: 200px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-flow: dense;
+        }
+
+        .card {
+        display: flex;
+        }
+
+        .card img {
+        position: relative;
+        display: flex;
+        top: 80px;
+        left: -60px
+        }
+
+	</style>
+</head>
+<body>
+	<div class="header">
+    	<h2>
+        	<img src="https://www.simonsfoundation.org/app/themes/simonsfoundation/frontend/icons/logo.svg" />
+        	HTML/CSS Challenge
+    	</h2>
+	</div>
+	<div class="cards">
+    	<a class="card" href="#">
+        	<h1>Article title</h1>
+        	<img src="https://simonsfoundation.imgix.net/wp-content/uploads/2024/05/09141203/IMG_2581-scaled.jpg?auto=format&w=1020&q=90&dpr=2" />
+        	<div class="meta">
+            	<p>by Author Name</p>
+            	<p>Jan 1, 1970</p>
+        	</div>
+        	<div class="teaser">
+            	<p>From which we spring rich in mystery muse about a mote of dust suspended in a sunbeam Cambrian explosion courage of our questions? Something incredible is waiting to be known stirred by starlight the carbon in our apple pies vanquish the impossible citizens of distant epochs stirred by starlight?</p>
+        	</div>
+    	</a>
+    	<a class="card" href="#">
+        	<h1>Article title</h1>
+        	<img src="https://simonsfoundation.imgix.net/wp-content/uploads/2024/05/09141203/IMG_2581-scaled.jpg?auto=format&w=1020&q=90&dpr=2" />
+        	<div class="meta">
+            	<p>by Author Name</p>
+            	<p>Jan 1, 1970</p>
+        	</div>
+        	<div class="teaser">
+            	<p>Something incredible is waiting to be known tendrils of gossamer clouds how far away finite but unbounded two ghostly white figures in coveralls and helmets are softly dancing worldlets</p>
+        	</div>
+    	</a>
+    	<a class="card" href="#">
+        	<h1>Article title</h1>
+        	<img src="https://simonsfoundation.imgix.net/wp-content/uploads/2024/05/09141203/IMG_2581-scaled.jpg?auto=format&w=1020&q=90&dpr=2" />
+        	<div class="meta">
+            	<p>by Author Name</p>
+            	<p>Jan 1, 1970</p>
+        	</div>
+        	<div class="teaser">
+            	<p>From which we spring rich in mystery muse about a mote of dust suspended in a sunbeam Cambrian explosion courage of our questions? Something incredible is waiting to be known stirred by starlight the carbon in our apple pies vanquish the impossible citizens of distant epochs stirred by starlight?</p>
+        	</div>
+    	</a>
+    	<a class="card" href="#">
+        	<h1>Article title</h1>
+        	<img src="https://simonsfoundation.imgix.net/wp-content/uploads/2024/05/09141203/IMG_2581-scaled.jpg?auto=format&w=1020&q=90&dpr=2" />
+        	<div class="meta">
+            	<p>by Author Name</p>
+            	<p>Jan 1, 1970</p>
+        	</div>
+        	<div class="teaser">
+            	<p>Something incredible is waiting to be known tendrils of gossamer clouds how far away finite but unbounded two ghostly white figures in coveralls and helmets are softly dancing worldlets</p>
+        	</div>
+    	</a>
+    	<a class="card" href="#">
+        	<h1>Article title</h1>
+        	<img src="https://simonsfoundation.imgix.net/wp-content/uploads/2024/05/09141203/IMG_2581-scaled.jpg?auto=format&w=1020&q=90&dpr=2" />
+        	<div class="meta">
+            	<p>by Author Name</p>
+            	<p>Jan 1, 1970</p>
+        	</div>
+        	<div class="teaser">
+            	<p>From which we spring rich in mystery muse about a mote of dust suspended in a sunbeam Cambrian explosion courage of our questions? Something incredible is waiting to be known stirred by starlight the carbon in our apple pies vanquish the impossible citizens of distant epochs stirred by starlight?</p>
+        	</div>
+    	</a>
+	</div>
+<body>
+</html>
